@@ -1,5 +1,8 @@
 import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
+import load_dotenv from "dotenv"
+
+load_dotenv();
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
