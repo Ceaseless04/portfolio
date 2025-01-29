@@ -41,3 +41,6 @@ storage.rules
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Data for projects
+app/projects/data.json
