@@ -43,4 +43,4 @@ storage.rules
 next-env.d.ts
 
 # Data for projects
-app/projects/data.json
+public/data.json

@@ -1,15 +1,19 @@
-import { db } from "../firebase/config"
-import { collection, getDocs } from "firebase/firestore"
-import Header from "../components/Header"
+"use client"
 
-async function getProjects() {
-  const projectsCol = collection(db, "projects")
-  const projectSnapshot = await getDocs(projectsCol)
-  return projectSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-}
+import { useState, useEffect } from "react";
+import { Project } from "../../lib/types";
+import Header from "../components/Header";
 
-export default async function Projects() {
-  const projects = await getProjects()
+export default function Projects() {
+	const [projects, setProjects] = useState<Project[]>([]);
+
+	useEffect(() => {
+		fetch("/data.json")
+			.then((res) => res.json())
+			.then((data) => setProjects(data.projects))
+			.catch((err) => console.error("Error fetching projects:", err));
+	}, []);
+
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -19,12 +23,12 @@ export default async function Projects() {
           My Projects
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project: any) => (
-            <div key={project.id} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-              <img src={project.image || "/placeholder.svg"} alt={project.title} className="w-full h-48 object-cover" />
+          {projects.map((project, index) => (
+            <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
+			  <img src={project.image || "/placeholder.svg"} alt={project.name} className="w-full h-48 object-cover" />
               <div className="p-4">
                 <h2 className="text-xl font-semibold mb-2 text-[var(--royal-blue)] dark:text-[var(--seafoam-green)]">
-                  {project.title}
+                  {project.name}
                 </h2>
                 <p className="text-[var(--teal)] dark:text-[var(--teal)] mb-4">{project.description}</p>
                 <a
@@ -44,6 +48,6 @@ export default async function Projects() {
         <div className="container text-center">&copy; 2023 Your Name. All rights reserved.</div>
       </footer>
     </div>
-  )
+  );
 }
 
