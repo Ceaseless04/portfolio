@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --kanagawa-bg: #1f1f28;
+  --kanagawa-surface: #2a2a37;
+  --kanagawa-overlay: #363646;
+  --kanagawa-blue: #7e9cd8;
+  --kanagawa-cyan: #7fb4ca;
+  --kanagawa-teal: #6a9589;
+  --kanagawa-green: #98bb6c;
+  --kanagawa-yellow: #e6c384;
+  --kanagawa-orange: #ffa066;
+  --kanagawa-red: #f7768e;
+  --kanagawa-magenta: #c4a7e7;
+  --kanagawa-violet: #957fb8;
+  --kanagawa-fg: #dcd7ba;
+  --kanagawa-fg-dim: #a09f93;
+  --kanagawa-wave-blue1: #223249;
+  --kanagawa-wave-blue2: #2d4f67;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--kanagawa-bg);
+  color: var(--kanagawa-fg);
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateX(-50%) translateY(20px) rotate(-1deg);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px) rotate(1deg);
+  }
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(-20px) rotate(90deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    transform: translateY(20px) rotate(270deg);
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, var(--kanagawa-blue), var(--kanagawa-cyan), var(--kanagawa-magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 200%;
+  animation: gradient 6s ease infinite;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 30vh;
+  background: linear-gradient(
+    90deg,
+    var(--kanagawa-wave-blue1) 0%,
+    var(--kanagawa-wave-blue2) 25%,
+    var(--kanagawa-blue) 50%,
+    var(--kanagawa-cyan) 75%,
+    var(--kanagawa-teal) 100%
+  );
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  animation: wave 8s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.wave:nth-child(2) {
+  animation: wave 6s ease-in-out infinite reverse;
+  opacity: 0.4;
+  height: 80%;
+}
+
+.wave:nth-child(3) {
+  animation: wave 10s ease-in-out infinite;
+  opacity: 0.3;
+  height: 60%;
+}
+
+.floating-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(126, 156, 216, 0.1) 0%, transparent 70%);
+  animation: float 20s infinite linear;
+}

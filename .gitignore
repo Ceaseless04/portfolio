@@ -3,8 +3,12 @@
 # dependencies
 /node_modules
 /.pnp
-.pnp.js
-.yarn/install-state.gz
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
 # testing
 /coverage
@@ -24,16 +28,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.pnpm-debug.log*
 
-# local env files
-.env*.local
-.env
-
-# firebase db
-app/firebase/
-.firebaserc
-firebase.json
-storage.rules
+# env files (can opt-in for committing if needed)
+.env*
 
 # vercel
 .vercel
@@ -41,6 +39,3 @@ storage.rules
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# Data for projects
-public/data.json
