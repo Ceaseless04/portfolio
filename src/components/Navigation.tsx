@@ -56,13 +56,11 @@ const Navigation = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className="relative transition-colors duration-300 group"
+                className="relative transition-colors duration-300 group hover:text-[var(--kanagawa-cyan)]"
                 style={{ color: 'var(--kanagawa-fg-dim)' }}
-                onMouseEnter={(e) => e.target.style.color = 'var(--kanagawa-cyan)'}
-                onMouseLeave={(e) => e.target.style.color = 'var(--kanagawa-fg-dim)'}
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full" 
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
                       style={{ backgroundColor: 'var(--kanagawa-cyan)' }} />
               </Link>
             ))}

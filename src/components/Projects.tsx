@@ -30,18 +30,10 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className="rounded-xl p-6 transition-all duration-300 relative overflow-hidden group"
+              className="rounded-xl p-6 transition-all duration-300 relative overflow-hidden group hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(0,0,0,0.3)]"
               style={{
                 background: 'var(--kanagawa-surface)',
                 border: '1px solid var(--kanagawa-overlay)'
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.transform = 'translateY(-5px)'
-                e.target.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.3)'
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.transform = 'translateY(0)'
-                e.target.style.boxShadow = 'none'
               }}
             >
               <div 

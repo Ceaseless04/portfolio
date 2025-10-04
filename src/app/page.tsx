@@ -21,14 +21,16 @@ export default function Home() {
   }
 
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen overflow-x-hidden">
       <FloatingElements />
       <WaveAnimation />
-      <Navigation />
-      <Hero />
-      <Projects />
-      <Skills />
-      <Footer />
+      <div className="relative z-10">
+        <Navigation />
+        <Hero />
+        <Projects />
+        <Skills />
+        <Footer />
+      </div>
     </main>
   )
 }

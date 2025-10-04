@@ -25,10 +25,8 @@ const Footer = () => {
             <Link
               key={link.name}
               href={link.href}
-              className="text-lg transition-colors duration-300"
+              className="text-lg transition-colors duration-300 hover:text-[var(--kanagawa-magenta)]"
               style={{ color: 'var(--kanagawa-fg-dim)' }}
-              onMouseEnter={(e) => e.target.style.color = 'var(--kanagawa-magenta)'}
-              onMouseLeave={(e) => e.target.style.color = 'var(--kanagawa-fg-dim)'}
             >
               {link.name}
             </Link>

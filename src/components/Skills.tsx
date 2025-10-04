@@ -35,13 +35,11 @@ const Skills = () => {
           {skills.map((skill, index) => (
             <div
               key={skill.category}
-              className="rounded-xl p-6 text-center transition-transform duration-300"
+              className="rounded-xl p-6 text-center transition-transform duration-300 hover:-translate-y-1"
               style={{
                 background: 'var(--kanagawa-surface)',
                 border: '1px solid var(--kanagawa-overlay)'
               }}
-              onMouseEnter={(e) => e.target.style.transform = 'translateY(-5px)'}
-              onMouseLeave={(e) => e.target.style.transform = 'translateY(0)'}
             >
               <div className="text-4xl mb-4">{skill.icon}</div>
               <h3 className="text-xl font-semibold mb-4" style={{ color: 'var(--kanagawa-orange)' }}>
